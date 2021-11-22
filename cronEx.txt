@@ -1,8 +1,0 @@
-#Isso é um exemplo de arquivo crontab pra fazer o script funcionar
-
-PATH=/usr/bin/python/:/usr/bin/python3/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-* * * * * <Caminho pro script sh>
-* * * * * ./<Caminho pro binário>
-
-#Coloque os dois (sh e binário) na mesma pasta pra facilitar
