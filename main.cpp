@@ -14,7 +14,7 @@ int main(int argc,char** argv)
 {
     if(argc==3)
     {
-        int8_t fuse = atoi(argv[2]);
+        
         time_t raw;
         struct tm* ptm;
         int16_t tempo;
@@ -25,8 +25,8 @@ int main(int argc,char** argv)
 
 
             time(&raw);
-            ptm = gmtime(&raw);
-            tempo = ((ptm->tm_hour+(fuse)%24)*60) + (ptm->tm_min);
+            ptm = localtime(&raw);
+            tempo = ((ptm->tm_hour)*60) + (ptm->tm_min);
 
             command = "cp "; //Comando de copiar do Linux
             command += string(argv[1]); //exemplo: /home/talkys/Imagens/Daypaper/
@@ -46,7 +46,7 @@ int main(int argc,char** argv)
     }
     else if(argc==4)
     {
-        int8_t fuse = atoi(argv[2]);
+        
         time_t raw;
         struct tm* ptm;
         int16_t tempo;
@@ -55,8 +55,8 @@ int main(int argc,char** argv)
         while(1)
         {
             time(&raw);
-            ptm = gmtime(&raw);
-            tempo = ((ptm->tm_hour+(fuse)%24)*60) + (ptm->tm_min);
+            ptm = localtimetime(&raw);
+            tempo = ((ptm->tm_hour)*60) + (ptm->tm_min);
 
             command = "cp "; //Comando de copiar do Linux
             command += string(argv[1]); //exemplo: /home/talkys/Imagens/Daypaper/
