@@ -14,4 +14,4 @@ Agora você deve acertar os pontos de início em fim. O dia tem 1440 minutos, e 
 Mande renderizar para imagem, ou use: ffmpeg -i video.algumacoisa %d.png Esse será seu set de imagens.
 Coloque o set em uma pasta e marque o endereço dessa pasta.
 
-Execute o programa passando como parâmetros o endereço da pasta e a extensão dos arquivos. Um arquivo XML será gerado. Defina este arquivo como wallpaper e pronto.
+Execute o programa passando como parâmetros o endereço da pasta, a extensão dos arquivos e o operador > com o nome do arquivo xml (Ex: ./DayPaper.AppImage /home/wallpapers .png > wallpaper.xml). Um arquivo XML será gerado. Defina este arquivo como wallpaper e pronto.
