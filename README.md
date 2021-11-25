@@ -1,5 +1,5 @@
 # DayPaper
-## Solução básica de wallpaper dinâmico para Linux (Não testado em Windows)
+## Solução básica de wallpaper dinâmico para Linux
 
 ### Introdução
 
@@ -14,14 +14,4 @@ Agora você deve acertar os pontos de início em fim. O dia tem 1440 minutos, e 
 Mande renderizar para imagem, ou use: ffmpeg -i video.algumacoisa %d.png Esse será seu set de imagens.
 Coloque o set em uma pasta e marque o endereço dessa pasta.
 
-Crie uma imagem now.png na mesma pasta e sete ela como wallpaper.
-
-Crie uma entrada de inicialização do appimage no sistema para que ele seja executado após o boot. Se você usa o AppImage Launche vai querer integrar ele antes.
-
-No comando de inicialização passe os argumentos como: pasta_das imagens fuso_horário (Brasil é -3) intervalo_em_milisegundos.
-
-Exemplo: /home/talkys/Daypaper/ -3 60000
-
-Desse jeito a atualização sera executada a cada 1 minuto.
-
-Se você acertou os caminhos e fez tudo certo, seu wallpaper será trocado a cada 1 minuto.
+Execute o programa passando como parâmetros o endereço da pasta e a extensão dos arquivos. Um arquivo XML será gerado. Defina este arquivo como wallpaper e pronto.

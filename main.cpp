@@ -1,84 +1,37 @@
 #include <iostream>
-#include <ctime>
 #include <string>
-#include <chrono>
-#include <thread>
 
 using namespace std;
 
-int16_t now = 0;
+/*Argument format: program / wallpaper foler / file extension*/
 
-//./DayPaper <directory> fuse interval
-
-int main(int argc,char** argv)
+int main(int argc, char** argv)
 {
     if(argc==3)
     {
-        
-        time_t raw;
-        struct tm* ptm;
-        int16_t tempo;
-        string command;
+        cout<<"<background>"<<endl;
+        cout<<"  <starttime>"<<endl;
+        cout<<"    <year>2021</year>"<<endl;
+        cout<<"    <month>01</month>"<<endl;
+        cout<<"    <day>11</day>"<<endl;
+        cout<<"    <hour>0</hour>"<<endl;
+        cout<<"    <minute>00</minute>"<<endl;
+        cout<<"    <second>00</second>"<<endl;
+        cout<<"  </starttime>"<<endl;
 
-        while(1)
+        for(int i=0;i<1440;i++)
         {
-
-
-            time(&raw);
-            ptm = localtime(&raw);
-            tempo = ((ptm->tm_hour)*60) + (ptm->tm_min);
-
-            command = "cp "; //Comando de copiar do Linux
-            command += string(argv[1]); //exemplo: /home/talkys/Imagens/Daypaper/
-            command += to_string(tempo); //O código da imagem
-            command += ".png "; //Se for usar outra extensão de imagem, troca aqui E NÃO TIRA O ESPAÇO NO FINAL!
-            command += string(argv[1]); //Pasta do now.png
-            command += "now.png"; //Troca o nome aqui se quiser
-
-            if(tempo!=now)
-            {
-                now = tempo;
-                system(command.c_str());
-            }
-
-            this_thread::sleep_for(chrono::milliseconds(30000));
+            cout<<"  <static>"<<endl;
+            cout<<"    <duration>55.0</duration>"<<endl;
+            cout<<"    <file>"<<string(argv[1])<<"/"<<i<<string(argv[2])<<"</file>"<<endl;
+            cout<<"  </static>"<<endl;
+            cout<<"  <transition type=\"overlay\">"<<endl;
+            cout<<"    <duration>5.0</duration>"<<endl;
+            cout<<"    <from>"<<string(argv[1])<<"/"<<i<<string(argv[2])<<"</from>"<<endl;
+            cout<<"    <to>"<<string(argv[1])<<"/"<<i+1<<string(argv[2])<<"</to>"<<endl;
+            cout<<"  </transition>"<<endl;
         }
+
+        cout<<"</background>";
     }
-    else if(argc==4)
-    {
-        
-        time_t raw;
-        struct tm* ptm;
-        int16_t tempo;
-        string command;
-        int interval = atoi(argv[3]);
-        while(1)
-        {
-            time(&raw);
-            ptm = localtimetime(&raw);
-            tempo = ((ptm->tm_hour)*60) + (ptm->tm_min);
-
-            command = "cp "; //Comando de copiar do Linux
-            command += string(argv[1]); //exemplo: /home/talkys/Imagens/Daypaper/
-            command += to_string(tempo); //O código da imagem
-            command += ".png "; //Se for usar outra extensão de imagem, troca aqui E NÃO TIRA O ESPAÇO NO FINAL!
-            command += string(argv[1]); //Pasta do now.png
-            command += "now.png"; //Troca o nome aqui se quiser
-
-
-            if(tempo!=now)
-            {
-                now = tempo;
-                system(command.c_str());
-            }
-
-            this_thread::sleep_for(chrono::milliseconds(interval));
-        }
-    }
-    else
-    {
-        cout<<"Argumentos inválidos, seu mané!"<<endl;
-        cout<<"Coloque o diretório das imagens, o fuso horário (Brasil é -3) e opcionalmente um intervalo customizado (Em milisegundos)"<<endl;
-    }
-    return 0;
 }
